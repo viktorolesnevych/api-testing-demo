@@ -17,8 +17,8 @@ public class APIUtils {
         return jsonResponse;
     }
 
-    public HttpResponse<JsonNode> post_API(String url, User userInfo) throws UnirestException {
-        String bodyJson = SerializationUtils.serealizeObject(userInfo);
+    public HttpResponse<JsonNode> post_API(String url, Object unserializedObj) throws UnirestException {
+        String bodyJson = SerializationUtils.serealizeObject(unserializedObj);
         System.out.println(bodyJson);
         jsonResponse = Unirest.post(url)
                 .header("accept", "application/json")

@@ -20,7 +20,7 @@ import POJOs.User;
 public class MyStepdefs {
 
     private WebDriver driver;
-    private APIUtils cmd_API;
+    private APIUtils API_;
     private UpdateUserPage objUserPage;
     private User myUser;
     private int userId;
@@ -34,7 +34,7 @@ public class MyStepdefs {
         System.setProperty("webdriver.chrome.driver", DRIVER_PATH);
         driver = new ChromeDriver();
         objUserPage = new UpdateUserPage(driver);
-        cmd_API = new APIUtils();
+        API_= new APIUtils();
         myUser = new User("name99", "username99", "+3423456432", "name99@gmail.com", "9999 W Michigan St");
     }
 
@@ -45,7 +45,7 @@ public class MyStepdefs {
 
     @Given("^New user is created via API$")
     public void newUserIsCreatedViaAPI() throws UnirestException {
-        HttpResponse<JsonNode> response = cmd_API.post_API(USERS_ENDPOINT,myUser);
+        HttpResponse<JsonNode> response = API_.post_API(USERS_ENDPOINT,myUser);
         JSONObject userJsonObject = response.getBody().getObject();
         userId = (int)(userJsonObject.get("id"));
     }
