@@ -13,14 +13,14 @@ import org.json.JSONObject;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import pageObjects.CommandsAPI;
+import Utils.APIUtils;
 import pageObjects.UpdateUserPage;
-import plainOldJavaObjects.User;
+import POJOs.User;
 
 public class MyStepdefs {
 
     private WebDriver driver;
-    private CommandsAPI cmd_API;
+    private APIUtils cmd_API;
     private UpdateUserPage objUserPage;
     private User myUser;
     private int userId;
@@ -34,7 +34,7 @@ public class MyStepdefs {
         System.setProperty("webdriver.chrome.driver", DRIVER_PATH);
         driver = new ChromeDriver();
         objUserPage = new UpdateUserPage(driver);
-        cmd_API = new CommandsAPI();
+        cmd_API = new APIUtils();
         myUser = new User("name99", "username99", "+3423456432", "name99@gmail.com", "9999 W Michigan St");
     }
 
