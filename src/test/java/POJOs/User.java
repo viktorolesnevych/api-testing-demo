@@ -1,4 +1,7 @@
-package plainOldJavaObjects;
+package POJOs;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 public class User {
     public String name;
